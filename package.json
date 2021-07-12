@@ -1,0 +1,24 @@
+{
+  "name": "anonymessage-backend",
+  "version": "1.0.0",
+  "description": "Backend for AnonyMessage app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BESH-401/anonymessage-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BESH-401/anonymessage-backend/issues"
+  },
+  "homepage": "https://github.com/BESH-401/anonymessage-backend#readme",
+  "dependencies": {
+    "socket.io": "^4.1.3"
+  }
+}
