@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/BESH-401/anonymessage-backend#readme",
   "dependencies": {
-    "socket.io": "^4.1.3"
+    "dotenv": "^10.0.0",
+    "jest": "^27.0.6",
+    "socket.io": "^4.1.3",
+    "socket.io-client": "^4.1.3"
   }
 }
