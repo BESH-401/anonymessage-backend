@@ -10,7 +10,7 @@ const client = io.connect(`${BASE_URL}/${EXTENSION}`);
 
 // This variable for messages
 const messageVariable = {
-  "message": "@Susan First message",
+  "message": "/people",
   "username": "Susan"
 }
 
