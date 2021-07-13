@@ -36,7 +36,7 @@ messageApp.on('connection', (socket) => {
   // When user logs in with data in the database corresponding to their username, grab that user specific data, and sent back to the client.
   socket.on('initialLogin', (info) => {
     let username = info.username;
-    socket.broadcast.emit('messageOut', `${username} has joined the chat.`)
+    socket.broadcast.emit('stringOut', `${username} has joined the chat.`)
     CL.add(username, socket.id);
     userModel.find({ name: username })
       .then(results => {
@@ -79,7 +79,7 @@ messageApp.on('connection', (socket) => {
           commandRes = 'Not a valid command. Try `/commands` for a list of commands.';
       }
       // Send command response to user
-      socket.emit('messageOut', commandRes);
+      socket.emit('stringOut', commandRes);
     }
 
     // Testing if incoming message is a direct message with regex, if it is, adds message to database under the mentioned name as the key and the message as the value for that object.
