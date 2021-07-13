@@ -53,8 +53,36 @@ messageApp.on('connection', (socket) => {
     // console.logging incoming message
     console.log(`Incoming message from ${socket.id}: '${message.message}'`);
 
+    // Testing if incoming message is a command with regex, if it is, tests the specific command with a switch and sends the user back a correct response.
+    let regex = /^(\/[A-z]+)/g;
+    if (regex.test(message.message)) {
+      let temp = message.message.split(' ')[0];
+      let commandRes = '';
+      switch (temp) {
+        case '/help':
+          commandRes = 'To send a message to a specific person, use `@name` at the beginning of your message, and if the user is offline, will send the message to them when they come online. For a full list of commands, use: `/commands`.';
+          break;
+        case '/people':
+          for (let i = 0; i < CL.clientList.length; i++) {
+            if (commandRes === '') {
+              commandRes = `Clients connnected to server: ${CL.clientList[i].name}`;
+            } else {
+              commandRes = `${commandRes}, ${CL.clientList[i].name}`;
+            }
+          }
+          break;
+        case '/commands':
+          commandRes = '`/help` - Will inform the user of mentioning feature. `/people` - Will display a list of current aliases connected to the server. `/commands` - Will display a list of availiable commands';
+          break;
+        default:
+          commandRes = 'Not a valid command. Try `/commands` for a list of commands.';
+      }
+      // Send command response to user
+      socket.emit('messageOut', commandRes);
+    }
+
     // Testing if incoming message is a direct message with regex, if it is, adds message to database under the mentioned name as the key and the message as the value for that object.
-    let regex = /^(@[A-Za-z]+)/g;
+    regex = /^(@[A-Za-z]+)/g;
     if (regex.test(message.message)) {
       let temp = message.message.split(' ')[0];
       temp = temp.split('');
@@ -94,8 +122,10 @@ messageApp.on('connection', (socket) => {
           });
       }
     }
-    messageApp.emit('messageOut', message.message);
-    console.log(CL);
+    regex = /^(\/[A-z]+)/g;
+    if (!regex.test(message.message)) {
+      messageApp.emit('messageOut', message.message);
+    }
   });
 
   // ================== Events for when user disconnects ==================
