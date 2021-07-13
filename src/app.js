@@ -36,6 +36,7 @@ messageApp.on('connection', (socket) => {
   // When user logs in with data in the database corresponding to their username, grab that user specific data, and sent back to the client.
   socket.on('initialLogin', (info) => {
     let username = info.username;
+    socket.broadcast.emit('messageOut', `${username} has joined the chat.`)
     CL.add(username, socket.id);
     userModel.find({ name: username })
       .then(results => {
