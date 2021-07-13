@@ -1,4 +1,9 @@
 # Team Agreement for Team BESH
+## Team members:
+  - Tek Jones
+  - Louis Lassegue
+  - Alexander Williams
+  - Keian Anthony
 
 ## Cooperation
 
