@@ -33,10 +33,12 @@ Backend for AnonyMessage app
 ## Requirements
 - Setup
   1. download Nodejs and MongoDB atlas
-  2. command line `npm init -y`
-  3. update all dependencies `npm update`
-  4. add an .env file
-  5. add your environment variables
+  2. fork repository from [github](https://github.com/BESH-401/anonymessage-backend)
+  3. copy repository
+  4. command line on local machine `git clone` (copy repository)
+  5. update all dependencies `npm update`
+  6. add an .env file
+  7. add your environment variables
     - `PORT`=(your local port)
     - `MONGODB_URI`=(your mongoDB cluster link)
     - Test setup with mockClient.js
@@ -61,9 +63,13 @@ Backend for AnonyMessage app
   - Bot (help commands)
 
 ## Acceptance tests:
-- The user should be able to enter the chat without submitting any information, and send and receive information
-- If the "save chat" button is clicked, there should be a response of some data
-- If a user logs in under the same name, chat logs that include their username will be sent to them (that occured while they were offline)
+AnonyMessage backend app tests
+  - Initial login found on server
+  - Testing message out from client to server
+  - Testing message from server to client
+  - Testing commands `/help`, `/commands`, `/people`
+  - Message mentioning other user that is offline enters database
+  - Message mentioning other user that is online remains off database
 
 ## Links
 - [AnonyMessage App](https://anony-message.netlify.app/)
