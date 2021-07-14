@@ -89,10 +89,8 @@ messageApp.on('connection', (socket) => {
       temp = temp.split('');
       temp = temp.splice(1, temp.length, '');
       temp = temp.join('');
-      /*
-      temp here equals the users name mentioned,
-      below tests if mentioned name is connected to the server
-      */
+
+      // temp here equals the users name mentioned, below tests if mentioned name is connected to the server
       let nameMatch = false;
       let current = 0;
       while (nameMatch === false && current < CL.clientList.length) {
