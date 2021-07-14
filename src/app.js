@@ -125,7 +125,7 @@ messageApp.on('connection', (socket) => {
     }
     regex = /^(\/[A-z]+)/g;
     if (!regex.test(message.message)) {
-      messageApp.emit('messageOut', message.message);
+      messageApp.emit('messageOut', message);
     }
   });
 
