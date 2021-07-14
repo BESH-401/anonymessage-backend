@@ -34,7 +34,7 @@ Backend for AnonyMessage app
 - Setup
   1. download Nodejs and MongoDB atlas
   2. command line `npm init -y`
-  3. install all dependencies `npm install dotenv jest mongoose socket.io socket.io-client` 
+  3. update all dependencies `npm update`
   4. add an .env file
   5. add your environment variables
     - `PORT`=(your local port)
